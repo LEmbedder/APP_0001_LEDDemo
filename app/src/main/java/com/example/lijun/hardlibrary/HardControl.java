@@ -2,7 +2,7 @@
 
 
 package com.example.lijun.hardlibrary;
-
+//test
 public class HardControl {
     public static native int ioctrl(int which, int status);
     public static native int open();
