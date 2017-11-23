@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.example.lijun.hardlibrary.*;
+
+
 public class MainActivity extends ActionBarActivity {
 
     private boolean ledOn = false;
@@ -20,6 +23,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        HardControl hardControl = new HardControl();
 
         button = (Button) findViewById(R.id.BUTTON);
         checkBoxLed1 = (CheckBox) findViewById(R.id.led1);
@@ -37,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
                     checkBoxLed2.setChecked(true);
                     checkBoxLed3.setChecked(true);
                     checkBoxLed4.setChecked(true);
+
 
                 } else {
                     button.setText("ALL ON");
