@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.example.lijun.hardlibrary.*;
+import com.example.lijun.hardlibrary.HardControl;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -24,7 +24,6 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        HardControl hardControl = new HardControl();
 
         button = (Button) findViewById(R.id.BUTTON);
         checkBoxLed1 = (CheckBox) findViewById(R.id.led1);
@@ -43,6 +42,10 @@ public class MainActivity extends ActionBarActivity {
                     checkBoxLed3.setChecked(true);
                     checkBoxLed4.setChecked(true);
 
+                    for(int i = 0; i < 4; i++) {
+                        HardControl.ioctrl(i,1);
+                    }
+
 
                 } else {
                     button.setText("ALL ON");
@@ -50,6 +53,10 @@ public class MainActivity extends ActionBarActivity {
                     checkBoxLed2.setChecked(false);
                     checkBoxLed3.setChecked(false);
                     checkBoxLed4.setChecked(false);
+
+                    for(int i = 0; i < 4; i++) {
+                        HardControl.ioctrl(i,0);
+                    }
                 }
 
             }
@@ -63,24 +70,30 @@ public class MainActivity extends ActionBarActivity {
             case R.id.led1:
                 if(checked)
                 {
+                    HardControl.ioctrl(0, 1);
                     Toast.makeText(getApplicationContext(),"Led1 on",Toast.LENGTH_SHORT).show();
+
                 }
                 else{
+                    HardControl.ioctrl(0, 0);
                     Toast.makeText(getApplicationContext(),"Led1 off",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.led2:
                 if(checked)
                 {
+                    HardControl.ioctrl(1, 1);
                     Toast.makeText(getApplicationContext(),"Led2 on",Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    HardControl.ioctrl(1, 0);
                     Toast.makeText(getApplicationContext(),"Led2 off",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.led3:
                 if(checked)
                 {
+                    HardControl.ioctrl(2, 1);
                     Toast.makeText(getApplicationContext(),"Led3 on",Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -90,6 +103,7 @@ public class MainActivity extends ActionBarActivity {
             case R.id.led4:
                 if(checked)
                 {
+                    HardControl.ioctrl(3, 1);
                     Toast.makeText(getApplicationContext(),"Led4 on",Toast.LENGTH_SHORT).show();
                 }
                 else{
